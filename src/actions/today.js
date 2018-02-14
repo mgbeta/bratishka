@@ -6,7 +6,8 @@ export default class TodayAction extends Action {
   }
 
   doAction(message) {
+    const chatId = message.chat.id || message.from.id;
     const date = new Date(message.date * 1000);
-    if (date.getDay() == 2) this.sendMessage(message, 'О! Да сегодня же вторник!');
+    if (date.getDay() == 2) this.bot.sendMessage(chatId, 'О! Да сегодня же вторник!');
   }
 }

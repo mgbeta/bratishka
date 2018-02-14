@@ -6,6 +6,7 @@ export default class WinAction extends Action {
   }
 
   doAction(message) {
-    this.sendMessage(message, 'а я выиграл');
+    const chatId = message.chat.id || message.from.id;
+    this.bot.sendMessage(chatId, 'а я выиграл');
   }
 }

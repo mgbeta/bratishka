@@ -23,6 +23,7 @@ export default class BayanAction extends Action {
   }
 
   doAction(message) {
-    this.sendMessage(message, this.messages[this.randomInteger(0, this.messages.length - 1)]);
+    const chatId = message.chat.id || message.from.id;
+    this.bot.sendMessage(chatId, this.messages[this.randomInteger(0, this.messages.length - 1)]);
   }
 }

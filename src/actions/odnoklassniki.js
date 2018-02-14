@@ -9,10 +9,16 @@ export default class OkAction extends Action {
   }
 
   async doAction(message) {
-    const bot = this;
-    const firstWord = _.shuffle(message.text.split(' '))[0].match(/[a-zA-Zа-яА-ЯёЁ]+/)[0];
-    // console.log(firstWord);
+    const bot = this.bot;
+    const chatId = message.chat.id || message.from.id;
+    // console.log(message.text, message.text.match(/\w+/u));
+    const firstWord = message.text.match(/[a-zA-Zа-яА-ЯёЁ]+/)[0] || 'йцу';
+    console.log(firstWord);
+    // try{
     const url = `http://stavklass.ru/images/autocomplete.json?term=${encodeURI(firstWord)}`;
+      // } catch(e) {
+      //   console.log(e);
+      // }
 
     fetch(url)
       .then((response) => {
@@ -24,7 +30,7 @@ export default class OkAction extends Action {
       .then((stories) => {
         if (!stories.length) return;
         const story = _.shuffle(stories)[0];
-        bot.sendMessage(message, story);
+        bot.sendMessage(chatId, story);
           // console.log(stories);
       });
   }

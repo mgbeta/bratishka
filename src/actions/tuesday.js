@@ -6,6 +6,7 @@ export default class TuesdayAction extends Action {
   }
 
   doAction(message) {
-    this.sendMessage(message, 'идем бухать!');
+    const chatId = message.chat.id || message.from.id;
+    this.bot.sendMessage(chatId, 'идем бухать!');
   }
 }

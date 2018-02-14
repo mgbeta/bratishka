@@ -15,6 +15,7 @@ export default class BatishkaAction extends Action {
   }
 
   doAction(message) {
-    this.sendMessage(message, this.messages[this.randomInteger(0, this.messages.length - 1)], 1500);
+    const chatId = message.chat.id || message.from.id;
+    this.bot.sendMessage(chatId, this.messages[this.randomInteger(0, this.messages.length - 1)]);
   }
 }
