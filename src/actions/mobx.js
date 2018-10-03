@@ -16,7 +16,7 @@ export default class MobxAction extends Action {
     'CAADAgADRgMAAswJPAaflgVlsoibuAI',
   ]
   test(message) {
-    return this.testMessageRegExp(message, /\bmobx|typescript|backbone|angular|erlang\b/)  && this.percentProbability(50);
+    return this.testMessageRegExp(message, /\bmobx|typescript|backbone|angular|erlang|mst|flow|bootstrap|meteor\b/)  && this.percentProbability(50);
   }
 
   doAction(message) {
