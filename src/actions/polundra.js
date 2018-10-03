@@ -44,7 +44,7 @@ export default class WinAction extends Action {
     'dwnste',
     'MagzNikitin',
     'fpsthirty',
-    'zounds,
+    'zounds',
     'arkady_b',
     'MaxOlin33',
     'metallcorn',
